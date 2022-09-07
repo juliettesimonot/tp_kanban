@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kanban</title>
+</head>
+<body>
+    <h1>Kanban</h1>
+    <section class="newNote">
+        <form action="">
+            <h2>Add notes</h2>
+            <div class="note-bg">
+                <label for="title">Title of note</label>
+                <input type="text" name="" id="title">
+                <label for="content">Content of note</label>
+                <input type="text" name="" id="content">
+            </div>
+            <button>Validation</button>
+        </form>
+        <div class="delete">
+            <h2>Delete notes</h2>
+            <div class="delete_img_container">
+                <img src="./delete.png" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="notes">
+        <div class="to_do_container">
+            <h2>TO DO</h2>
+            <div class="to_do"></div>
+        </div>
+        <div class="done_container">
+            <h2>DONE</h2>
+            <div class="done"></div>
+        </div>
+        <div class="verified_container">
+            <h2>VERIFIED</h2>
+            <div class="verified"></div>
+        </div>
+    </section>
+    
+    <script src="./script.js"></script>
+</body>
+</html>

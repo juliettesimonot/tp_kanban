@@ -1,0 +1,142 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    background-color: #3767D6;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ---------------------  */
+/* section newnote  */
+/* ---------------------  */
+
+.newNote{
+    background-color: rgb(248, 248, 248);
+    border-radius: 20px;
+    color: black;
+    border: 4px solid rgb(209, 209, 209);
+    padding: 20px;
+    width: 70%;
+    margin: 30px 0;
+    min-height: 300px;
+}
+
+.newNote h2{
+    margin-bottom: 15px;
+}
+
+/* form  */
+
+.newNote form, .delete{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+}
+
+.note-bg{
+    background-color: #FEFF88;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 1px 3px 3px rgb(186, 185, 185);
+    padding: 20px;
+}
+
+.newNote form input{
+    margin: 10px 0;
+    width: 70%;
+}
+
+.newNote button{
+    padding: 5px 20px;
+}
+
+
+/* delete  */
+
+.delete_img_container{
+    width: 30%; 
+    height: 100%;
+}
+
+.delete_img_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ---------------------  */
+/* section notes  */
+/* ---------------------  */
+
+.notes{
+    width: 70%;
+    text-align: center;
+}
+
+.notes h2{
+    margin-bottom: 10px;
+}
+
+.to_do, .done, .verified{
+    min-height: 250px;
+    background-color: rgb(248, 248, 248);
+    border-radius: 20px;
+    border: 4px solid rgb(209, 209, 209);
+    padding: 20px;
+}
+
+
+/* note  */
+.note-bg p{
+    margin-top: 10px;
+}
+    
+.note-date{
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+
+.bold-border{
+    border: 4px solid rgb(88, 88, 88);
+}
+
+.bigger img{
+    transform:scale(1.3);
+}
+
+/* responsive  */
+@media (min-width:800px) {
+    .newNote{
+        width: 50%;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 10px;
+    }
+
+    .notes{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 20px;
+        width: 90%;
+    }
+
+    .to_do, .done, .verified{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 10px;
+    }
+    
+}
