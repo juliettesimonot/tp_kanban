@@ -51,12 +51,7 @@ class Note{
 // /---------------------/
 //au lancement de la page
 // /----------------------/
-window.addEventListener('load', ()=>{
-    if(localStorage.getItem('to-do')){
-        getFromLocalStorage();
-    }
-    
-})
+window.onload = getFromLocalStorage();
 
 
 // /------------------/ 
@@ -173,35 +168,32 @@ function addToLocalStorage(){
 }
 
 
-
-
-
 function newTabNotes(tab, note){
     let newDoNote = new Note(note.children[0].textContent, note.children[1].textContent, note.children[2].textContent)
     tab.push(newDoNote);  
 }
 
 
-
 //recuperer elements du localstorage pour mettre a jour au refresh 
 
 function getFromLocalStorage(){
-    var toDoStorage =JSON.parse(localStorage.getItem('to-do')) ;
-    var doneStorage =JSON.parse(localStorage.getItem('done')) ;
-    var verifiedStorage =JSON.parse(localStorage.getItem('verified')) ;
+    var toDoStorage =JSON.parse(localStorage.getItem('to-do')) || "";
+    var doneStorage =JSON.parse(localStorage.getItem('done')) || "";
+    var verifiedStorage =JSON.parse(localStorage.getItem('verified')) || "";
 
-    toDoStorage.forEach(note => {
-        createNote(note, toDoContainer);
-    });
-
-    doneStorage.forEach(note => {
-        createNote(note, doneContainer);
-    });
-
-    verifiedStorage.forEach(note => {
-        createNote(note, verifiedContainer);
-    });
+    if(toDoStorage != ""){
+        toDoStorage.forEach(note => {
+            createNote(note, toDoContainer);
+        });
     
+        doneStorage.forEach(note => {
+            createNote(note, doneContainer);
+        });
+    
+        verifiedStorage.forEach(note => {
+            createNote(note, verifiedContainer);
+        });
+    } 
 }
 
 function createNote(note, container){
