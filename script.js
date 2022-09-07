@@ -51,7 +51,12 @@ class Note{
 // /---------------------/
 //au lancement de la page
 // /----------------------/
-window.onload = getFromLocalStorage();
+window.addEventListener('load', ()=>{
+    if(localStorage.getItem('to-do')){
+        getFromLocalStorage();
+    }
+    
+})
 
 
 // /------------------/ 
@@ -77,7 +82,6 @@ buttonValidation.addEventListener('click', e=>{
 function start(e){
     e.dataTransfer.effectAllowed="move";
     e.dataTransfer.setData("text", e.target.getAttribute("id"));
-    findNote(e.currentTarget, e.target);
 }
 
 function over(e){
@@ -164,12 +168,12 @@ function addToLocalStorage(){
     });
 
     localStorage.setItem('to-do', JSON.stringify(toDoNotes));
-    console.log(localStorage.getItem('to-do'));
     localStorage.setItem('done', JSON.stringify(doneNotes));
-    console.log(localStorage.getItem('done'));
     localStorage.setItem('verified', JSON.stringify(verifiedNotes));
-    console.log(localStorage.getItem('verified'));
 }
+
+
+
 
 
 function newTabNotes(tab, note){
@@ -187,7 +191,7 @@ function getFromLocalStorage(){
     var verifiedStorage =JSON.parse(localStorage.getItem('verified')) ;
 
     toDoStorage.forEach(note => {
-       createNote(note, toDoContainer);
+        createNote(note, toDoContainer);
     });
 
     doneStorage.forEach(note => {
@@ -197,6 +201,7 @@ function getFromLocalStorage(){
     verifiedStorage.forEach(note => {
         createNote(note, verifiedContainer);
     });
+    
 }
 
 function createNote(note, container){
