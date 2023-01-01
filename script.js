@@ -67,7 +67,7 @@ buttonValidation.addEventListener('click', e=>{
     count++;
 
     //enregistrer dans le localstorage
-    addToLocalStorage(newNote);
+    addToLocalStorage();
 })
 
 // /------------------/ 
@@ -181,19 +181,19 @@ function getFromLocalStorage(){
     var doneStorage =JSON.parse(localStorage.getItem('done')) || "";
     var verifiedStorage =JSON.parse(localStorage.getItem('verified')) || "";
 
-    if(toDoStorage != ""){
-        toDoStorage.forEach(note => {
-            createNote(note, toDoContainer);
-        });
+   
+    toDoStorage.forEach(note => {
+        createNote(note, toDoContainer);
+    });
+
+    doneStorage.forEach(note => {
+        createNote(note, doneContainer);
+    });
+
+    verifiedStorage.forEach(note => {
+        createNote(note, verifiedContainer);
+    });
     
-        doneStorage.forEach(note => {
-            createNote(note, doneContainer);
-        });
-    
-        verifiedStorage.forEach(note => {
-            createNote(note, verifiedContainer);
-        });
-    } 
 }
 
 function createNote(note, container){
